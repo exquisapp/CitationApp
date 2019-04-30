@@ -2,7 +2,7 @@
 
 ### Install Node On Your Machine
 
-### `git clone https://github.com/iamwales/citation_website.git` 
+### `git clone `this repo 
 
 
 ## `cd citation_website`
