@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Citation Website</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">CreateCitation</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="ion-android-menu text-center svg2"></i>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-end"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav ">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="jumbotron text-left">
+      <div class="container ">
+        <h1 class="display-3">
+          Personalized Writing <br />Help When You Need it.
+        </h1>
+        <p class="lead mt-3">
+          CreateCitation helps you build a bibliography instantly from any
+          computer or device,<br />
+          without creating an account or installing any software.
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-8">
+          <h2 class="cite-head text-center">Instant Citation Tool</h2>
+          <div class="input-group mt-5">
+            <span class="ml-5"><i class="ion-android-search icon1"></i></span>
+            <input
+              type="text"
+              id="searchEntry"
+              class="form-control form-1"
+              placeholder="Find a book by title, author, or ISBN"
+            />
+
+            <button type="button" onClick="citate()" class="btn ml-3">
+              Cite
+            </button>
+            <div class="spinner display-none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <div class="container mt-5">
+        <div class="card text-center">
+          <div class="card-header">
+            <h3>Citation results</h3>
+          </div>
+          <div class="card-body results"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="howto text-center">
+      <h3 class="howto-head">How To Use</h3>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 howtotxt text-center">
+            <img class="img-how" src="./img/ci-1.jpg" height="70px" alt="" />
+            <p>
+              Copy & paste your source. You can select a source type, or press
+              cite. We'll do the rest!
+            </p>
+          </div>
+          <div class="col-md-4 howtotxt text-center">
+            <img class="img-how" src="./img/ci-2.jpg" height="70px" alt="" />
+            <p>
+              Click cite & search for data. We'll search multiple databases and
+              check new data for accurary.
+            </p>
+          </div>
+          <div class="col-md-4 howtotxt text-center">
+            <img class="img-how" src="./img/ci-3.jpg" height="70px" alt="" />
+            <p>
+              Check, edit, and export. Save to Google Drive, Word, and more!
+              More features coming soon.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container text-center">
+        <p class="foot">2019 All Rights Reserved</p>
+      </div>
+    </footer>
+
+
+    <!-- absolute elements -->
+    <div class="j-overlay display-none"></div>
+
+    <div class="multiple display-none">
+        <div class="multiple-content">
+
+        </div>
+    </div>
+
+    <div class="edit-citation display-none">
+      
+    </div>
+
+
+
+
+
+
+<!-- for multiple results -->
+  <button
+    type="button"
+    id="modalClick"
+    class="btn mt-5 display-none"
+    data-toggle="modal"
+    data-target="#exampleModal"
+  >
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog " role="document">
+      <div class="modal-content text-center">
+        <div class="modal-header text-center">
+          <h5 class="modal-title ml-3" id="exampleModalLabel">
+            Select Your Book
+          </h5>
+          <button
+            id="modalC"
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="container">
+        <div class="modal-body">
+          <div class="multi row mb-3 align-content-center">
+            
+           <!-- template comes here -->
+            
+              
+          </div>
+        </div>
+         
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  <!-- for editing results -->
+  <button
+      id="editM"
+      type="button"
+      class="btn mt-5 display-none"
+      data-toggle="modal"
+      data-target="#exampleModal-1"
+    >
+      edit-result
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal-1"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog " role="document">
+        <div class="modal-content text-center">
+          <div class="modal-header text-center">
+            <h5 class="modal-title ml-3" id="exampleModalLabel">
+              Edit
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="container">
+          <div class="modal-body">
+            <div class="row mb-3 form-class">
+              <form class="edit-form">
+                <!-- <div class="form-row mt-5">
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="author" placeholder="Author Name">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="title" placeholder="Title">
+                  </div>
+                </div> -->
+
+                <!-- <div class="form-group">
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Editor">
+                </div>
+
+                <div class="form-group">
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Publisher">
+                </div>
+                <div class="form-group">
+
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Date">
+                </div>
+                <div class="form-group">
+
+                  <input type="text" class="form-control" id="inputAddress" placeholder="Pages">
+                </div>
+                <div class="form-group">
+
+                  <input type="text" class="form-control" id="inputAddress" placeholder="URL">
+                </div>
+
+                <div class="form-group">
+                  <div class="form-group">
+
+                    <input type="text" class="form-control" id="inputAddress" placeholder="Rights">
+                  </div>
+                </div>
+ -->
+
+              </form>
+              
+                
+            </div>
+          </div>
+          </div>
+           
+          <div class="modal-footer">
+            <button class="edit-it btn float-right">Edit</button>
+            <button
+              type="button"
+              id="modal-2-closer"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- error -->
+    <div id="error-div" class="display-none">
+        <p>
+          Sorry, there was an error fetch your citation.<br>
+          <i>Please refresh to try again!</i>
+        </p>
+    </div>
+  </body>
+
+
+
+  <script src="./js/jquery-3.3.1.js"></script>
+  <script src="./js/Popper.js"></script>
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/main.js"></script>
+</html>
